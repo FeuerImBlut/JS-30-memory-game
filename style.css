@@ -10,17 +10,51 @@
 }
 
 .card-board {
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     border: 3px  solid blue;
     flex-wrap: wrap;
     row-gap: 30px;
-    /* column-gap: 30px; */
     padding: 30px;
+    width: 80%;
 }
 
 .card {
-    width: 300px;
-    aspect-ratio: 4/3;
+    width: calc(25% - 10px);
+    aspect-ratio: 16/9;
     border: 2px solid ;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    background-color: slateblue;
+}
+
+.card.flip {
+    
+    transform: rotateY(180deg);
+    background-color: darkslateblue;
+
+}
+
+img {
+    display: block;
+    height: 100%;
+    }
+
+.front,
+.back {
+  /* padding: 20px; */
+  position: absolute;
+  /* background: #1C7CCC; */
+  backface-visibility: hidden;
+}
+
+.front {
+    transform: rotateY(180deg);
 }
