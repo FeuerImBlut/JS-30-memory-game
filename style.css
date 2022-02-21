@@ -4,9 +4,15 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #232423;
+}
+
 .container {
     max-width: 1400px;
     margin: 0 auto;
+    text-align: center;
+    position: relative;
 }
 
 .card-board {
@@ -38,7 +44,7 @@
 .card.flip {
     
     transform: rotateY(180deg);
-    background-color: darkslateblue;
+    background-color: rgb(120, 118, 138);
 
 }
 
@@ -58,3 +64,40 @@ img {
 .front {
     transform: rotateY(180deg);
 }
+
+header {
+    font-family: "DCFont";
+    color: white;
+    font-size: 56px;
+    padding: 10px;
+}
+
+.leaderboard {
+    display: block;
+    max-width: 360px;
+    max-height: 640px;
+    background: green;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 20px;
+    opacity: 100;
+    transition: ease-in 0.3s;
+}
+
+.leaderboard.hidden {
+    opacity: 0;
+    z-index: -1;
+}
+
+
+
+@font-face {
+    font-family: "DCFont"; 
+    src: url("assets/fonts/DcFandom-orr4.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+    }
