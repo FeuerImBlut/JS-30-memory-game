@@ -1,14 +1,16 @@
 // localStorage.clear();
 const cards = document.querySelectorAll('.card');
-const leaderboardBlock = document.querySelector('.leaderboard');
+const leaderboard = document.querySelector('.leaderboard');
 const leaderButton = document.querySelector('.leaders-button');
+const leaderboardBlock = document.querySelector('.leaderboard-block');
+const closeButton = document.querySelector('.close');
 
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 let endTurns = 8;
 let turns = 0;
-let leaderboard;
+let leaderboardText;
 
 
 function flipCard() {
@@ -76,36 +78,32 @@ function setLocalStorage() {
 
 (function getLocalStorage() {
     if (localStorage.getItem('leaderboard')) {
-        leaderboard = JSON.parse(localStorage.getItem('leaderboard'));
-        //alert(leaderboard);
-    }
+        leaderboardText = JSON.parse(localStorage.getItem('leaderboard'));
+}
 })()
 
 function endGame() {
     let name = prompt('Enter your name:', 'Joker');
     let result = `${name}: ${turns}`;
-    if (leaderboard.length < 10) {
-        leaderboard.push(result);
+    if (leaderboardText.length < 10) {
+        leaderboardText.push(result);
     }
     else {
-        leaderboard.shift();
-        leaderboard.push(result);
+        leaderboardText.shift();
+        leaderboardText.push(result);
     }
     setLocalStorage();
     alert(`Congratulations, ${name} ! It took you ${turns} turns to finish the game`);
 }
 
-// window.addEventListener('beforeunload', setLocalStorage);
-// window.addEventListener('load', getLocalStorage);
-
 (function fillLeaderboard() {
     while (leaderboardBlock.firstChild) {
         leaderboardBlock.firstChild.remove();
     }
-    if (leaderboard == undefined || leaderboard.length == 0) {
-        leaderboard = [];
+    if (leaderboardText == undefined || leaderboardText.length == 0) {
+        leaderboardText = [];
         return;} 
-    leaderboard.forEach(element => {
+    leaderboardText.forEach(element => {
         let div = document.createElement('div');
         div.innerHTML = element;
         div.classList.add('leaders-text')
@@ -114,9 +112,9 @@ function endGame() {
 })()
 
 leaderButton.addEventListener('click', () =>{
-    leaderboardBlock.classList.toggle('hidden');
+    leaderboard.classList.toggle('hidden');
 });
 
-
-// endGame();
-
+closeButton.addEventListener('click', () => {
+    leaderboard.classList.toggle('hidden');
+});

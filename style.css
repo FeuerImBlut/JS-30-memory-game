@@ -20,7 +20,6 @@ body {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    border: 3px  solid blue;
     flex-wrap: wrap;
     row-gap: 30px;
     padding: 30px;
@@ -39,7 +38,7 @@ body {
     border-radius: 10px;
     transform-style: preserve-3d;
     transition: transform .5s;
-    background-color: slateblue;
+    background-color: #6a5acd;
 }
 
 .card:active {
@@ -119,6 +118,51 @@ header {
     user-select: none;
 }
 
+.close {
+    display: block;
+    cursor: pointer;
+    filter: invert(1);
+    width: 48px;
+    height: 48px;
+    margin-left: auto;
+    user-select: none;
+}
+
+footer {
+    font-size: 20px;
+    max-width: 1100px;
+    color: white;
+    display: flex;
+    margin: 0 auto;
+    padding: 0 10px 0;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    height: 70px;
+}
+
+a:hover {
+    filter: brightness(0) saturate(100%) invert(50%) sepia(93%) saturate(4794%) hue-rotate(232deg) brightness(87%) contrast(81%);
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    color: inherit;
+    font: inherit;
+    transition: ease-in 0.3s;
+}
+
+.github {
+    margin-right: auto;
+    padding-left: 10px;
+}
+
+.rs {
+    width: 100px;
+    height: 50px;
+    filter: invert(1);
+}
 
 
 @font-face {
