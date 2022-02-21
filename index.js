@@ -1,5 +1,7 @@
+// localStorage.clear();
 const cards = document.querySelectorAll('.card');
-let leaderboardBlock = document.querySelector('.leaderboard');
+const leaderboardBlock = document.querySelector('.leaderboard');
+const leaderButton = document.querySelector('.leaders-button');
 
 let hasFlippedCard = false;
 let lockBoard = false;
@@ -69,12 +71,13 @@ function resetBoard() {
 cards.forEach(card => card.addEventListener('click', flipCard));
 
 function setLocalStorage() {
-    localStorage.setItem('leaderboard', leaderboard);
+    localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
 }
 
 (function getLocalStorage() {
     if (localStorage.getItem('leaderboard')) {
-        leaderboard = localStorage.getItem('leaderboard');
+        leaderboard = JSON.parse(localStorage.getItem('leaderboard'));
+        //alert(leaderboard);
     }
 })()
 
@@ -99,15 +102,21 @@ function endGame() {
     while (leaderboardBlock.firstChild) {
         leaderboardBlock.firstChild.remove();
     }
-    if (leaderboard.length) {
+    if (leaderboard == undefined || leaderboard.length == 0) {
         leaderboard = [];
         return;} 
     leaderboard.forEach(element => {
         let div = document.createElement('div');
         div.innerHTML = element;
+        div.classList.add('leaders-text')
         leaderboardBlock.appendChild(div);
     });
 })()
 
-endGame();
+leaderButton.addEventListener('click', () =>{
+    leaderboardBlock.classList.toggle('hidden');
+});
+
+
+// endGame();
 

@@ -6,6 +6,7 @@
 
 body {
     background-color: #232423;
+    font-family: "DCFont";
 }
 
 .container {
@@ -41,6 +42,10 @@ body {
     background-color: slateblue;
 }
 
+.card:active {
+    transform: scale(0.95);
+}
+
 .card.flip {
     
     transform: rotateY(180deg);
@@ -66,7 +71,6 @@ img {
 }
 
 header {
-    font-family: "DCFont";
     color: white;
     font-size: 56px;
     padding: 10px;
@@ -76,7 +80,7 @@ header {
     display: block;
     max-width: 360px;
     max-height: 640px;
-    background: green;
+    background: black;
     position: fixed;
     left: 0;
     right: 0;
@@ -86,11 +90,33 @@ header {
     border-radius: 20px;
     opacity: 100;
     transition: ease-in 0.3s;
+    font-size: 20px;
+    color: white;
+    padding: 20px;
+}
+
+.leaders-text {
+    padding: 5px;
 }
 
 .leaderboard.hidden {
     opacity: 0;
     z-index: -1;
+}
+
+.leaders-button {
+    font-size: 16px;
+    position: absolute;
+    bottom: 0;
+    right: 20%;
+    cursor: pointer;
+    transform: scale(1);
+    transition: ease-in 0.1s;
+}
+
+.leaders-button:active {
+    transform: scale(0.95);
+    user-select: none;
 }
 
 
