@@ -73,7 +73,7 @@ function resetBoard() {
 cards.forEach(card => card.addEventListener('click', flipCard));
 
 function setLocalStorage() {
-    localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+    localStorage.setItem('leaderboard', JSON.stringify(leaderboardText));
 }
 
 (function getLocalStorage() {
